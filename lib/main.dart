@@ -65,7 +65,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
             ),
-            navbar(),
+            Navbar(),
           ],
         ),
       ),
