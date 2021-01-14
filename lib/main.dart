@@ -1,7 +1,9 @@
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:na_dobro/theme/themes.dart';
 import 'package:na_dobro/widgets/carousel.dart';
+import 'package:na_dobro/widgets/support.dart';
+
+import 'data.dart';
 
 void main() {
   runApp(MyApp());
@@ -21,8 +23,6 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  var carouselItems = ["carousel1.png", "carousel2.png", "carousel3.png", "carousel4.png"];
-
   MyHomePage({Key key, this.title}) : super(key: key);
 
   final String title;
@@ -32,7 +32,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,10 +47,14 @@ class _MyHomePageState extends State<MyHomePage> {
               child: SingleChildScrollView(
                 child: Column(
                   children: [
-                    CarouselWidget(images: widget.carouselItems),
+                    CarouselWidget(images: carouselItems),
+                    SizedBox(height: 16),
                     demand(),
+                    SizedBox(height: 16),
                     articles(),
+                    SizedBox(height: 16),
                     companies(),
+                    SizedBox(height: 16),
                     partners(),
                   ],
                 ),
@@ -65,7 +68,28 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Widget demand() {
-    return Container();
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          "Vyřešíme v Česku #naDobro",
+          style: TextStyle(fontSize: 20, color: Colors.white),
+        ),
+        SizedBox(height: 16),
+        Container(
+          height: 400, // needed for ListView renderbox generation
+          width: MediaQuery.of(context).size.width,
+          child: ListView.builder(
+            shrinkWrap: true,
+            itemCount: demandItems.length,
+            scrollDirection: Axis.horizontal,
+            itemBuilder: (BuildContext context, int index) {
+              return SupportWidget(item: demandItems[index]);
+            },
+          ),
+        )
+      ],
+    );
   }
 
   Widget articles() {
@@ -77,7 +101,28 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Widget partners() {
-    return Container();
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          "Řeší s námi naDobro",
+          style: TextStyle(fontSize: 20, color: Colors.white),
+        ),
+        SizedBox(height: 16),
+        Container(
+          height: 400, // needed for ListView renderbox generation
+          width: MediaQuery.of(context).size.width,
+          child: ListView.builder(
+            shrinkWrap: true,
+            itemCount: partnersItems.length,
+            scrollDirection: Axis.horizontal,
+            itemBuilder: (BuildContext context, int index) {
+              return SupportWidget(item: partnersItems[index]);
+            },
+          ),
+        )
+      ],
+    );
   }
 
   Widget navbar() {
