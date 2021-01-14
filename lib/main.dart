@@ -140,11 +140,11 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         SizedBox(height: 8.0),
         defaultDivider(),
-        SizedBox(height: 8.0),
         Container(
           width: MediaQuery.of(context).size.width,
           child: ListView.separated(
             physics: NeverScrollableScrollPhysics(),
+            padding: EdgeInsets.all(0),
             shrinkWrap: true,
             itemCount: companiesItems.length,
             itemBuilder: (BuildContext context, int index) {
