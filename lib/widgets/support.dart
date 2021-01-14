@@ -51,6 +51,8 @@ class _SupportWidgetState extends State<SupportWidget> {
           ),
           Text(
             widget.item.title,
+            maxLines: 2,
+            overflow: TextOverflow.ellipsis,
             style: TextStyle(
               color: Colors.white,
               fontWeight: FontWeight.bold,
