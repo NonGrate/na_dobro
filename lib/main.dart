@@ -1,4 +1,7 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:na_dobro/theme/themes.dart';
+import 'package:na_dobro/widgets/carousel.dart';
 
 void main() {
   runApp(MyApp());
@@ -8,16 +11,18 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Na Dobro',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: MAIN_COLOR_MATERIAL,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(title: 'Hlavní stránka'),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
+  var carouselItems = ["carousel1.png", "carousel2.png", "carousel3.png", "carousel4.png"];
+
   MyHomePage({Key key, this.title}) : super(key: key);
 
   final String title;
@@ -27,13 +32,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -41,25 +39,48 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Center(
+      body: Container(
+        color: MAIN_COLOR,
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
+            Expanded(
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    CarouselWidget(images: widget.carouselItems),
+                    demand(),
+                    articles(),
+                    companies(),
+                    partners(),
+                  ],
+                ),
+              ),
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
+            navbar(),
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ),
     );
+  }
+
+  Widget demand() {
+    return Container();
+  }
+
+  Widget articles() {
+    return Container();
+  }
+
+  Widget companies() {
+    return Container();
+  }
+
+  Widget partners() {
+    return Container();
+  }
+
+  Widget navbar() {
+    return Container();
   }
 }
