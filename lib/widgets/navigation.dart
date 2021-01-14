@@ -18,7 +18,7 @@ class _NavbarState extends State<Navbar> {
         children: [
           InkWell(
             onTap: () {
-              ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+              Scaffold.of(context).showSnackBar(SnackBar(
                 content: Text("Favorites"),
               ));
             },
@@ -31,7 +31,7 @@ class _NavbarState extends State<Navbar> {
           ),
           InkWell(
             onTap: () {
-              ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+              Scaffold.of(context).showSnackBar(SnackBar(
                 content: Text("Main"),
               ));},
             child: Padding(
@@ -43,7 +43,7 @@ class _NavbarState extends State<Navbar> {
           ),
           InkWell(
             onTap: () {
-              ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+              Scaffold.of(context).showSnackBar(SnackBar( // ScaffoldMessenger doesn't compile for iOS
                 content: Text("Profile"),
               ));},
             child: Padding(
