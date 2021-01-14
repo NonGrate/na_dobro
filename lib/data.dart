@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'model/widget/article.dart';
 import 'model/widget/carousel.dart';
+import 'model/widget/company.dart';
 import 'model/widget/support.dart';
 
 List<CarouselItem> carouselItems = [
@@ -125,5 +126,28 @@ List<ArticleItem> articleItems = [
     title: "Index PES spadl do 4. stupně",
     colorStart: 0xFFf66a6a,
     colorEnd: 0xFFE23E3E,
+  ),
+];
+
+List<CompanyItem> companiesItems = [
+  CompanyItem(
+    id: 0,
+    title: "Konto Bariéry",
+    image: "company1.png",
+  ),
+  CompanyItem(
+    id: 1,
+    title: "Smiling Crocodile",
+    image: "company2.png",
+  ),
+  CompanyItem(
+    id: 2,
+    title: "Nadace Adra",
+    image: "company3.png",
+  ),
+  CompanyItem(
+    id: 3,
+    title: "Život dětem",
+    image: "company4.png",
   ),
 ];

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:na_dobro/theme/themes.dart';
 import 'package:na_dobro/widgets/article.dart';
 import 'package:na_dobro/widgets/carousel.dart';
+import 'package:na_dobro/widgets/company.dart';
+import 'package:na_dobro/widgets/navigation.dart';
 import 'package:na_dobro/widgets/support.dart';
 
 import 'data.dart';
@@ -52,11 +54,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     SizedBox(height: 32),
                     demand(),
                     SizedBox(height: 16),
-                    Container(
-                      height: 0.5,
-                      color: Colors.grey,
-                      margin: EdgeInsets.symmetric(horizontal: 16.0),
-                    ),
+                    defaultDivider(),
                     SizedBox(height: 16),
                     articles(),
                     SizedBox(height: 32),
@@ -118,7 +116,54 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Widget companies() {
-    return Container();
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          child: Row(
+            children: [
+              Expanded(
+                child: Text(
+                  "Nadace",
+                  style: TextStyle(fontSize: 20, color: Colors.white),
+                ),
+              ),
+              Material(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(8.0),
+                child: InkWell(
+                  onTap: () {},
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
+                    child: Text(
+                      "Zobraz vše".toUpperCase(),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+        SizedBox(height: 8.0),
+        defaultDivider(),
+        SizedBox(height: 8.0),
+        Container(
+          width: MediaQuery.of(context).size.width,
+          child: ListView.separated(
+            physics: NeverScrollableScrollPhysics(),
+            shrinkWrap: true,
+            itemCount: companiesItems.length,
+            itemBuilder: (BuildContext context, int index) {
+              return CompanyWidget(item: companiesItems[index]);
+            },
+            separatorBuilder: (BuildContext context, int index) {
+              return defaultDivider();
+            },
+          ),
+        )
+      ],
+    );
   }
 
   Widget partners() {
@@ -149,7 +194,11 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  Widget navbar() {
-    return Container();
+  Container defaultDivider() {
+    return Container(
+        height: 0.5,
+        color: Colors.grey,
+        margin: EdgeInsets.symmetric(horizontal: 16.0),
+      );
   }
 }
