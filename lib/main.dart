@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:na_dobro/theme/themes.dart';
+import 'package:na_dobro/widgets/article.dart';
 import 'package:na_dobro/widgets/carousel.dart';
 import 'package:na_dobro/widgets/support.dart';
 
@@ -48,13 +49,19 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: Column(
                   children: [
                     CarouselWidget(images: carouselItems),
-                    SizedBox(height: 16),
+                    SizedBox(height: 32),
                     demand(),
                     SizedBox(height: 16),
+                    Container(
+                      height: 0.5,
+                      color: Colors.grey,
+                      margin: EdgeInsets.symmetric(horizontal: 16.0),
+                    ),
+                    SizedBox(height: 16),
                     articles(),
-                    SizedBox(height: 16),
+                    SizedBox(height: 32),
                     companies(),
-                    SizedBox(height: 16),
+                    SizedBox(height: 32),
                     partners(),
                   ],
                 ),
@@ -71,9 +78,12 @@ class _MyHomePageState extends State<MyHomePage> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          "Vyřešíme v Česku #naDobro",
-          style: TextStyle(fontSize: 20, color: Colors.white),
+        Padding(
+          padding: const EdgeInsets.only(left: 16.0),
+          child: Text(
+            "Vyřešíme v Česku #naDobro",
+            style: TextStyle(fontSize: 20, color: Colors.white),
+          ),
         ),
         SizedBox(height: 16),
         Container(
@@ -93,7 +103,18 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Widget articles() {
-    return Container();
+    return Container(
+      height: 160, // needed for ListView renderbox generation
+      width: MediaQuery.of(context).size.width,
+      child: ListView.builder(
+        shrinkWrap: true,
+        itemCount: articleItems.length,
+        scrollDirection: Axis.horizontal,
+        itemBuilder: (BuildContext context, int index) {
+          return ArticleWidget(item: articleItems[index]);
+        },
+      ),
+    );
   }
 
   Widget companies() {
@@ -104,9 +125,12 @@ class _MyHomePageState extends State<MyHomePage> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          "Řeší s námi naDobro",
-          style: TextStyle(fontSize: 20, color: Colors.white),
+        Padding(
+          padding: const EdgeInsets.only(left: 16.0),
+          child: Text(
+            "Řeší s námi naDobro",
+            style: TextStyle(fontSize: 20, color: Colors.white),
+          ),
         ),
         SizedBox(height: 16),
         Container(

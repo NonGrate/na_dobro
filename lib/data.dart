@@ -1,3 +1,6 @@
+import 'dart:ui';
+
+import 'model/widget/article.dart';
 import 'model/widget/carousel.dart';
 import 'model/widget/support.dart';
 
@@ -91,5 +94,36 @@ List<SupportItem> partnersItems = [
     state: SupportState.FAILED,
     endDate: DateTime.now().subtract(Duration(days: 10)),
     isNew: false,
+  ),
+];
+
+List<ArticleItem> articleItems = [
+  ArticleItem(
+    id: 0,
+    author: "Pavel Moric",
+    title: "Změna začíná uvědomněním",
+    colorStart: 0xFFa868ff,
+    colorEnd: 0xFF852BFF,
+  ),
+  ArticleItem(
+    id: 1,
+    author: "",
+    title: "Jak funguje neziskový sektor",
+    colorStart: 0xFF85daf5,
+    colorEnd: 0xFF3EBBE3,
+  ),
+  ArticleItem(
+    id: 2,
+    author: "O'Reilly",
+    title: "Python 101",
+    colorStart: 0xFFcef580,
+    colorEnd: 0xFFABE23E,
+  ),
+  ArticleItem(
+    id: 3,
+    author: "iDnes",
+    title: "Index PES spadl do 4. stupně",
+    colorStart: 0xFFf66a6a,
+    colorEnd: 0xFFE23E3E,
   ),
 ];

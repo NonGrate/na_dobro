@@ -1,14 +1,15 @@
 class ArticleItem {
   final int id;
-  final int color;
+  final int colorStart;
+  final int colorEnd;
   final String author;
   final String title;
 
-  ArticleItem({this.id, this.color, this.title, this.author});
+  ArticleItem({this.id, this.colorStart, this.colorEnd, this.title, this.author});
 
   @override
   String toString() {
-    return 'ArticleItem{id: $id, color: $color, title: $title, author: $author}';
+    return 'ArticleItem{id: $id, colorStart: $colorStart, colorEnd: $colorEnd, title: $title, author: $author}';
   }
 
   @override
@@ -17,11 +18,4 @@ class ArticleItem {
 
   @override
   int get hashCode => id.hashCode;
-}
-
-enum SupportState {
-  IN_PROGRESS,
-  FULFILLED,
-  SUCCESSFUL,
-  FAILED,
 }
