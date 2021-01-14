@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:na_dobro/model/widget/article.dart';
-import 'package:na_dobro/model/widget/support.dart';
-import 'package:timeago/timeago.dart' as timeago;
 
 const double widgetWidth = 220;
 const double widgetHeight = 180;

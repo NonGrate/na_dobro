@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'model/widget/article.dart';
 import 'model/widget/carousel.dart';
 import 'model/widget/company.dart';
@@ -20,7 +18,7 @@ List<SupportItem> demandItems = [
     patrons: 4500,
     patronsGoal: 5000,
     state: SupportState.IN_PROGRESS,
-    endDate: DateTime.now().add(Duration(days: 4)),
+    endDate: DateTime.now().add(Duration(days: 4, hours: 2)),
     isNew: false,
   ),
   SupportItem(

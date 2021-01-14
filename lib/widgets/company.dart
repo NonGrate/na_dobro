@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:na_dobro/model/widget/article.dart';
 import 'package:na_dobro/model/widget/company.dart';
-import 'package:na_dobro/model/widget/support.dart';
-import 'package:timeago/timeago.dart' as timeago;
 
 class CompanyWidget extends StatefulWidget {
   final CompanyItem item;

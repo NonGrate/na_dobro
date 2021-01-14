@@ -170,7 +170,7 @@ class _SupportWidgetState extends State<SupportWidget> {
           Icon(Icons.access_time, color: timeColor),
           SizedBox(width: 4),
           Text(
-            timeago.format(endDate),
+            timeago.format(endDate, locale: 'cs', allowFromNow: true),
             style: TextStyle(color: timeColor),
           ),
         ],
